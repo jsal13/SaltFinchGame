@@ -1,0 +1,5 @@
+coverage
+mypy
+pytest-mock
+pytest
+ruff

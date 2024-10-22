@@ -1,0 +1,3 @@
+attrs
+ipykernel
+prompt_toolkit
