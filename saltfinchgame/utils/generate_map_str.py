@@ -47,13 +47,13 @@ def print_map_as_formatted_str(html_map_str: str) -> None:
     print_formatted_text(html_map_str, style=ASCII_STYLES)
 
 
-towns_in_falias = [town for town in TOWNS if town.country == CountryName.FALIAS]
+# towns_in_falias = [town for town in TOWNS if town.country == CountryName.FALIAS]
 
-ma = MapASCII()
-ma._generate_map_grid_base_layer()
-ma._generate_area_locations(areas=towns_in_falias)
-ma.map_grid[15][9] = "@"
-_map = return_map_str(ma.map_grid)
+# ma = MapASCII()
+# ma._generate_map_grid_base_layer()
+# ma._generate_area_locations(areas=towns_in_falias)
+# ma.map_grid[15][9] = "@"
+# _map = return_map_str(ma.map_grid)
 
 
-print_map_as_formatted_str(_map)
+# print_map_as_formatted_str(_map)
