@@ -26,4 +26,5 @@ LUXURY_GOODS: list[LuxuryGoods] = [
     LuxuryGoods(
         name=GoodsName.DATES, description="Sweet, candy-like fruits.  High in fiber."
     ),
+    LuxuryGoods(name=GoodsName.GLASS, description="Fragile, clear material."),
 ]

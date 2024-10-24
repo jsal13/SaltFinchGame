@@ -10,3 +10,4 @@ class GoodsName(Enum):
     SALT = auto()
     CARPET = auto()
     DATES = auto()
+    GLASS = auto()
