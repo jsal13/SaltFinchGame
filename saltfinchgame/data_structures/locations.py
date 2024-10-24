@@ -1,23 +1,7 @@
-from enum import Enum, auto
-
 from attrs import define
 
-
-class Size(Enum):
-    """Size of the Area."""
-
-    SMALL = auto()
-    MEDIUM = auto()
-    LARGE = auto()
-
-
-class Biome(Enum):
-    """Biomes of Areas."""
-
-    FOREST = auto()
-    TUNDRA = auto()
-    DESERT = auto()
-    GRASSLAND = auto()
+from saltfinchgame.data.location_attributes import Biome, MapLocation, Size
+from saltfinchgame.data.location_names import CountryName, TownName
 
 
 @define()
@@ -35,8 +19,9 @@ class Description:
 class Area:
     """Parent class for cities, towns, countries, etc."""
 
-    name: str
-    description: Description
+    name: TownName | CountryName
+    description: Description | str
+    map_location: MapLocation
 
 
 @define()
@@ -53,3 +38,4 @@ class Town(Area):
 
     goods_selling: str
     goods_buying: str
+    country: "Country"

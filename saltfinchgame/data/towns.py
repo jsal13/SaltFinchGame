@@ -1,51 +1,169 @@
-from enum import Enum, auto
+from saltfinchgame.data.location_names import CountryName, TownName
+from saltfinchgame.data_structures.locations import MapLocation, Town
 
-from saltfinchgame.data_structures.locations import Town
-
-
-class TownName(Enum):
-    """Town name enum."""
-
-    AETHERBURG = auto()
-    BOREALIS = auto()
-    CAERWYN = auto()
-    CALIDUS = auto()
-    DUNARD = auto()
-    DURUM = auto()
-    ELLAN = auto()
-    EOS = auto()
-    FRIGIDUM = auto()
-    GAELIC = auto()
-    GLACIALIS = auto()
-    GOROD = auto()
-    IGNIS = auto()
-    KIL = auto()
-    KRASNOYE = auto()
-    LUNA = auto()
-    NOVOSIBIRSK = auto()
-    NOX = auto()
-    STARY = auto()
-    ZOLOTOY = auto()
-
-
-TOWNS = {
-    TownName.CAERWYN: Town(name="Caerwyn", goods_selling="", goods_buying=""),
-    TownName.AETHERBURG: Town(name="Aetherburg", goods_selling="", goods_buying=""),
-    TownName.BOREALIS: Town(name="Borealis", goods_selling="", goods_buying=""),
-    TownName.CALIDUS: Town(name="Calidus", goods_selling="", goods_buying=""),
-    TownName.DURUM: Town(name="Durum", goods_selling="", goods_buying=""),
-    TownName.EOS: Town(name="Eos", goods_selling="", goods_buying=""),
-    TownName.FRIGIDUM: Town(name="Frigidum", goods_selling="", goods_buying=""),
-    TownName.IGNIS: Town(name="Ignis", goods_selling="", goods_buying=""),
-    TownName.LUNA: Town(name="Luna", goods_selling="", goods_buying=""),
-    TownName.NOX: Town(name="Nox", goods_selling="", goods_buying=""),
-    TownName.DUNARD: Town(name="Dunard", goods_selling="", goods_buying=""),
-    TownName.ELLAN: Town(name="Ellan", goods_selling="", goods_buying=""),
-    TownName.GAELIC: Town(name="Gaelic", goods_selling="", goods_buying=""),
-    TownName.KIL: Town(name="Kil", goods_selling="", goods_buying=""),
-    TownName.GOROD: Town(name="Gorod", goods_selling="", goods_buying=""),
-    TownName.KRASNOYE: Town(name="Krasnoye", goods_selling="", goods_buying=""),
-    TownName.NOVOSIBIRSK: Town(name="Novosibirsk", goods_selling="", goods_buying=""),
-    TownName.STARY: Town(name="Stary", goods_selling="", goods_buying=""),
-    TownName.ZOLOTOY: Town(name="Zoloty", goods_selling="", goods_buying=""),
-}
+TOWNS = [
+    # FALIAS
+    Town(
+        name=TownName.CAERWYN,
+        description="",
+        country=CountryName.FALIAS,
+        map_location=MapLocation(3, 5),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.AETHERBURG,
+        description="",
+        country=CountryName.FALIAS,
+        map_location=MapLocation(40, 3),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.BOREALIS,
+        description="",
+        country=CountryName.FALIAS,
+        map_location=MapLocation(8, 9),
+        goods_selling="",
+        goods_buying="",
+    ),
+    # SCHOLOMANCE
+    Town(
+        name=TownName.CALIDUS,
+        description="",
+        country=CountryName.SCHOLOMANCE,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.DUNARD,
+        description="",
+        country=CountryName.SCHOLOMANCE,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.DURUM,
+        description="",
+        country=CountryName.SCHOLOMANCE,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.ELLAN,
+        description="",
+        country=CountryName.SCHOLOMANCE,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.EOS,
+        description="",
+        country=CountryName.SCHOLOMANCE,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    # ZERZURA
+    Town(
+        name=TownName.FRIGIDUM,
+        description="",
+        country=CountryName.ZERZURA,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.GAELIC,
+        description="",
+        country=CountryName.ZERZURA,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    Town(
+        name=TownName.GLACIALIS,
+        description="",
+        country=CountryName.ZERZURA,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    # KARSHVAR
+    Town(
+        name=TownName.LUNA,
+        description="",
+        country=CountryName.KARSHVAR,
+        map_location=MapLocation(),
+        goods_selling="",
+        goods_buying="",
+    ),
+    # Town(
+    #     name=TownName.IGNIS,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.NOX,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.KIL,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.GOROD,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.KRASNOYE,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.NOVOSIBIRSK,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.STARY,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+    # Town(
+    #     name=TownName.ZOLOTOY,
+    #     description="",
+    #     country=CountryName.
+    #     map_location=MapLocation(),
+    #     goods_selling="",
+    #     goods_buying="",
+    # ),
+]

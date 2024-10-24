@@ -1,40 +1,29 @@
-from enum import Enum, auto
-
+from saltfinchgame.data.goods_names import GoodsName
 from saltfinchgame.data_structures.goods import BasicGoods, LuxuryGoods
 
-
-class GoodsName(Enum):
-    """Name of good."""
-
-    WATER = auto()
-    PACK_OF_VEGETABLES = auto()
-    SLABS_OF_MEAT = auto()
-    SALT = auto()
-    CARPET = auto()
-    DATES = auto()
-
-
-BASIC_GOODS: dict["GoodsName":"BasicGoods"] = {
-    GoodsName.WATER: BasicGoods(
-        name="Water", description="Clear liquid. Required for survival."
+BASIC_GOODS: list[BasicGoods] = [
+    BasicGoods(
+        name=GoodsName.WATER, description="Clear liquid. Required for survival."
     ),
-    GoodsName.SLABS_OF_MEAT: BasicGoods(
-        name="Slabs of Meat", description="Basic food. Required for survival."
+    BasicGoods(
+        name=GoodsName.SLABS_OF_MEAT, description="Basic food. Required for survival."
     ),
-    GoodsName.PACK_OF_VEGETABLES: BasicGoods(
-        name="Pack of Vegetables", description="Basic food. Required for survival."
+    BasicGoods(
+        name=GoodsName.PACK_OF_VEGETABLES,
+        description="Basic food. Required for survival.",
     ),
-}
+]
 
-LUXURY_GOODS: dict["GoodsName":"LuxuryGoods"] = {
-    GoodsName.CARPET: LuxuryGoods(
-        name="Carpet", description="Woven ornamental item.  Heavy, but valuable."
+LUXURY_GOODS: list[LuxuryGoods] = [
+    LuxuryGoods(
+        name=GoodsName.CARPET,
+        description="Woven ornamental item.  Heavy, but valuable.",
     ),
-    GoodsName.SALT: LuxuryGoods(
-        name="Salt",
+    LuxuryGoods(
+        name=GoodsName.SALT,
         description="Tiny white crystals, useful for curing meats and seasoning.",
     ),
-    GoodsName.DATES: LuxuryGoods(
-        name="Dates", description="Sweet, candy-like fruits.  High in fiber."
+    LuxuryGoods(
+        name=GoodsName.DATES, description="Sweet, candy-like fruits.  High in fiber."
     ),
-}
+]

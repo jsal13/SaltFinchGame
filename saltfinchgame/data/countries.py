@@ -1,27 +1,14 @@
-from enum import Enum, auto
-
-from saltfinchgame.data.towns import TOWNS, TownName
+from saltfinchgame.data.location_names import CountryName, TownName
 from saltfinchgame.data_structures.locations import Biome, Country, Description, Size
 
-
-class CountryName(Enum):
-    """Enum for country name."""
-
-    FALIAS = auto()
-    SCHOLOMANCE = auto()
-    ZERZURA = auto()
-    AKHET = auto()
-    KARSHVAR = auto()
-
-
-COUNTRIES: dict[CountryName, "Country"] = {
-    CountryName.FALIAS: Country(
-        name="Falias",
+COUNTRIES: list[Country] = [
+    Country(
+        name=CountryName.FALIAS,
         num_towns=3,
         towns=[
-            TOWNS[TownName.AETHERBURG],
-            TOWNS[TownName.BOREALIS],
-            TOWNS[TownName.CAERWYN],
+            TownName.AETHERBURG,
+            TownName.BOREALIS,
+            TownName.CAERWYN,
         ],
         description=Description(
             size=Size.SMALL,
@@ -37,15 +24,15 @@ COUNTRIES: dict[CountryName, "Country"] = {
             ),
         ),
     ),
-    CountryName.Scholomance: Country(
-        name="Scholomance",
+    Country(
+        name=CountryName.SCHOLOMANCE,
         num_towns=5,
         towns=[
-            TOWNS[TownName.CALIDUS],
-            TOWNS[TownName.DUNARD],
-            TOWNS[TownName.DURUM],
-            TOWNS[TownName.ELLAN],
-            TOWNS[TownName.EOS],
+            TownName.CALIDUS,
+            TownName.DUNARD,
+            TownName.DURUM,
+            TownName.ELLAN,
+            TownName.EOS,
         ],
         description=Description(
             size=Size.LARGE,
@@ -59,13 +46,13 @@ COUNTRIES: dict[CountryName, "Country"] = {
             misc_facts="",
         ),
     ),
-    CountryName.ZERZURA: Country(
-        name="Zerzura",
+    Country(
+        name=CountryName.ZERZURA,
         num_towns=3,
         towns=[
-            TOWNS[TownName.FRIGIDUM],
-            TOWNS[TownName.GAELIC],
-            TOWNS[TownName.GLACIALIS],
+            TownName.FRIGIDUM,
+            TownName.GAELIC,
+            TownName.GLACIALIS,
         ],
         description=Description(
             size=Size.MEDIUM,
@@ -82,31 +69,29 @@ COUNTRIES: dict[CountryName, "Country"] = {
             misc_facts="Sometimes called the 'oasis of little birds'.",
         ),
     ),
-    CountryName.AKHET: Country(
-        name="Akhet",
-        num_towns=2,
+    # Country(
+    #     name=CountryName.AKHET,
+    #     num_towns=2,
+    #     towns=[
+    #         TownName.GOROD,
+    #         TownName.IGNIS,
+    #     ],
+    #     description=Description(
+    #         size=Size.SMALL,
+    #         biomes=[Biome.DESERT, Biome.FOREST],
+    #         weather="Warm winters with humid, hot summers.",
+    #         resources=(
+    #             "Cotton and rice grow well here.  Some textiles and pottery can be "
+    #             "found in the cities."
+    #         ),
+    #         misc_facts="",
+    #     ),
+    # ),
+    Country(
+        name=CountryName.KARSHVAR,
+        num_towns=1,
         towns=[
-            TOWNS[TownName.GOROD],
-            TOWNS[TownName.IGNIS],
-        ],
-        description=Description(
-            size=Size.SMALL,
-            biomes=[Biome.DESERT, Biome.FOREST],
-            weather="Warm winters with humid, hot summers.",
-            resources=(
-                "Cotton and rice grow well here.  Some textiles and pottery can be "
-                "found in the cities."
-            ),
-            misc_facts="",
-        ),
-    ),
-    CountryName.KARSHVAR: Country(
-        name="Karshvar",
-        num_towns=3,
-        towns=[
-            TOWNS[TownName.KIL],
-            TOWNS[TownName.KRASNOYE],
-            TOWNS[TownName.LUNA],
+            TownName.LUNA,
         ],
         description=Description(
             size=Size.SMALL,
@@ -116,4 +101,4 @@ COUNTRIES: dict[CountryName, "Country"] = {
             misc_facts="",
         ),
     ),
-}
+]
