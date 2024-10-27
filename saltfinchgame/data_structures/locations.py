@@ -25,17 +25,51 @@ class Area:
 
 
 @define()
-class Country(Area):
-    """Represents a Country."""
-
-    num_towns: int
-    towns: list["Town"]
-
-
-@define()
 class Town(Area):
     """Represents a Town/City."""
 
     goods_selling: str
     goods_buying: str
     country: "Country"
+
+
+@define()
+class TownList:
+    """Represents a list of towns."""
+
+    towns: list[Town]
+
+    def __iter__(self):
+        yield from self.towns
+
+    def get_by_name(self, name: str | TownName) -> Town:
+        """Get town by name."""
+        if isinstance(name, TownName):
+            name: str = name.name
+
+        # There should only be one element here.
+        return next(town for town in self.towns if town.name.name == name)
+
+
+@define()
+class Country(Area):
+    """Represents a Country."""
+
+    towns: TownList
+
+
+@define()
+class CountryList:
+    """Represents a list of countries."""
+
+    countries: list[Country]
+
+    def __iter__(self):
+        yield from self.countries
+
+    def get_by_name(self, name: str | CountryName) -> Country:
+        """Get town by name."""
+        if isinstance(name, CountryName):
+            name: str = name.name
+        # There should only be one element here.
+        return next(country for country in self.countries if country.name.name == name)

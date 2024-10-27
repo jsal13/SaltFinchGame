@@ -4,9 +4,6 @@ import string
 from prompt_toolkit import HTML, print_formatted_text
 
 from saltfinchgame.constants import ASCII_MAP_VALUES, ASCII_STYLES
-from saltfinchgame.data.location_names import CountryName
-from saltfinchgame.data.towns import TOWNS
-from saltfinchgame.data_structures.ascii_map import MapASCII
 
 
 # ASCII MAP Symbols": {"Town": "#", "Player": "@", "Background": ".", "Country": "%"},
@@ -47,13 +44,17 @@ def print_map_as_formatted_str(html_map_str: str) -> None:
     print_formatted_text(html_map_str, style=ASCII_STYLES)
 
 
-# towns_in_falias = [town for town in TOWNS if town.country == CountryName.FALIAS]
+if __name__ == "__main__":
+    from saltfinchgame.data.countries import COUNTRIES
+    from saltfinchgame.data_structures.ascii_map import MapASCII
 
-# ma = MapASCII()
-# ma._generate_map_grid_base_layer()
-# ma._generate_area_locations(areas=towns_in_falias)
-# ma.map_grid[15][9] = "@"
-# _map = return_map_str(ma.map_grid)
+    towns_in_falias = COUNTRIES.get_by_name("FALIAS").towns
+    countries = COUNTRIES
 
+    ma = MapASCII()
+    ma._generate_map_grid_base_layer()
+    ma._generate_area_locations(areas=towns_in_falias)
+    # ma._generate_area_locations(areas=COUNTRIES)
+    _map = return_map_str(ma.map_grid)
 
-# print_map_as_formatted_str(_map)
+    print_map_as_formatted_str(_map)

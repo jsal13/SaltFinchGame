@@ -2,9 +2,10 @@ from attrs import define, field
 
 from saltfinchgame.constants import ASCII_MAP_VALUES
 from saltfinchgame.data_structures.locations import (
-    Area,
     Country,
+    CountryList,
     Town,
+    TownList,
 )
 
 
@@ -25,7 +26,7 @@ class MapASCII:
             list(self.symbols["Background"] * self.width) for _ in range(self.height)
         ]
 
-    def _generate_area_locations(self, areas: list[Area]) -> None:
+    def _generate_area_locations(self, areas: CountryList | TownList) -> None:
         """Generate town or country locations on the map."""
         if self.map_grid is None:
             msg: str = "`map_grid` has not been initialized."

@@ -1,7 +1,7 @@
 from saltfinchgame.data.location_names import CountryName, TownName
-from saltfinchgame.data_structures.locations import MapLocation, Town
+from saltfinchgame.data_structures.locations import MapLocation, Town, TownList
 
-TOWNS = [
+list_of_towns: list[Town] = [
     # FALIAS
     Town(
         name=TownName.CAERWYN,
@@ -167,3 +167,5 @@ TOWNS = [
     #     goods_buying="",
     # ),
 ]
+
+TOWNS: TownList = TownList(towns=list_of_towns)

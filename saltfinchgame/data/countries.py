@@ -1,15 +1,23 @@
 from saltfinchgame.data.location_names import CountryName, TownName
-from saltfinchgame.data_structures.locations import Biome, Country, Description, Size
+from saltfinchgame.data.towns import TOWNS
+from saltfinchgame.data_structures.locations import (
+    Biome,
+    Country,
+    CountryList,
+    Description,
+    MapLocation,
+    Size,
+)
 
-COUNTRIES: list[Country] = [
+list_of_countries: list[Country] = [
     Country(
         name=CountryName.FALIAS,
-        num_towns=3,
         towns=[
-            TownName.AETHERBURG,
-            TownName.BOREALIS,
-            TownName.CAERWYN,
+            TOWNS.get_by_name(TownName.AETHERBURG),
+            TOWNS.get_by_name(TownName.BOREALIS),
+            TOWNS.get_by_name(TownName.CAERWYN),
         ],
+        map_location=MapLocation(x=3, y=1),
         description=Description(
             size=Size.SMALL,
             biomes=[Biome.FOREST, Biome.GRASSLAND],
@@ -26,14 +34,14 @@ COUNTRIES: list[Country] = [
     ),
     Country(
         name=CountryName.SCHOLOMANCE,
-        num_towns=5,
         towns=[
-            TownName.CALIDUS,
-            TownName.DUNARD,
-            TownName.DURUM,
-            TownName.ELLAN,
-            TownName.EOS,
+            TOWNS.get_by_name(TownName.CALIDUS),
+            TOWNS.get_by_name(TownName.DUNARD),
+            TOWNS.get_by_name(TownName.DURUM),
+            TOWNS.get_by_name(TownName.ELLAN),
+            TOWNS.get_by_name(TownName.EOS),
         ],
+        map_location=MapLocation(x=5, y=7),
         description=Description(
             size=Size.LARGE,
             biomes=[Biome.FOREST, Biome.TUNDRA],
@@ -48,12 +56,12 @@ COUNTRIES: list[Country] = [
     ),
     Country(
         name=CountryName.ZERZURA,
-        num_towns=3,
         towns=[
-            TownName.FRIGIDUM,
-            TownName.GAELIC,
-            TownName.GLACIALIS,
+            TOWNS.get_by_name(TownName.FRIGIDUM),
+            TOWNS.get_by_name(TownName.GAELIC),
+            TOWNS.get_by_name(TownName.GLACIALIS),
         ],
+        map_location=MapLocation(x=22, y=12),
         description=Description(
             size=Size.MEDIUM,
             biomes=[Biome.DESERT],
@@ -71,10 +79,9 @@ COUNTRIES: list[Country] = [
     ),
     # Country(
     #     name=CountryName.AKHET,
-    #     num_towns=2,
     #     towns=[
-    #         TownName.GOROD,
-    #         TownName.IGNIS,
+    #         TOWNS.get_by_name(TownName.GOROD),
+    #         TOWNS.get_by_name(TownName.IGNIS),
     #     ],
     #     description=Description(
     #         size=Size.SMALL,
@@ -89,10 +96,10 @@ COUNTRIES: list[Country] = [
     # ),
     Country(
         name=CountryName.KARSHVAR,
-        num_towns=1,
         towns=[
-            TownName.LUNA,
+            TOWNS.get_by_name(TownName.LUNA),
         ],
+        map_location=MapLocation(x=37, y=3),
         description=Description(
             size=Size.SMALL,
             biomes=[Biome.GRASSLAND, Biome.FOREST],
@@ -102,3 +109,5 @@ COUNTRIES: list[Country] = [
         ),
     ),
 ]
+
+COUNTRIES: CountryList = CountryList(countries=list_of_countries)
