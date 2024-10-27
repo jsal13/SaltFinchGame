@@ -10,6 +10,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(3, 5),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.AETHERBURG,
@@ -18,6 +19,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(40, 3),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.BOREALIS,
@@ -26,6 +28,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(8, 9),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     # SCHOLOMANCE
     Town(
@@ -35,6 +38,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.DUNARD,
@@ -43,6 +47,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.DURUM,
@@ -51,6 +56,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.ELLAN,
@@ -59,6 +65,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.EOS,
@@ -67,6 +74,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     # ZERZURA
     Town(
@@ -76,6 +84,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.GAELIC,
@@ -84,6 +93,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     Town(
         name=TownName.GLACIALIS,
@@ -92,6 +102,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     # KARSHVAR
     Town(
@@ -101,6 +112,7 @@ list_of_towns: list[Town] = [
         map_location=MapLocation(),
         goods_selling="",
         goods_buying="",
+        inn_cost=1,
     ),
     # Town(
     #     name=TownName.IGNIS,
@@ -109,6 +121,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.NOX,
@@ -117,6 +130,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.KIL,
@@ -125,6 +139,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.GOROD,
@@ -133,6 +148,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.KRASNOYE,
@@ -141,6 +157,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.NOVOSIBIRSK,
@@ -149,6 +166,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.STARY,
@@ -157,6 +175,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
     # Town(
     #     name=TownName.ZOLOTOY,
@@ -165,6 +184,7 @@ list_of_towns: list[Town] = [
     #     map_location=MapLocation(),
     #     goods_selling="",
     #     goods_buying="",
+    #       inn_cost=1
     # ),
 ]
 

@@ -17,10 +17,7 @@ class Goods:
 
 
 @define()
-class BasicGoods(Goods):
-    """Basic Goods."""
+class GoodsList:
+    """List of goods."""
 
-
-@define()
-class LuxuryGoods(Goods):
-    """Goods which are not usable by the party (for selling only)."""
+    goods: list[Goods]

@@ -1,7 +1,7 @@
 from prompt_toolkit import HTML, print_formatted_text, prompt
 from prompt_toolkit.styles import Style
 
-from saltfinchgame.input_validator import numeric_validator
+from saltfinchgame.ui.input_validator import numeric_validator
 
 style = Style.from_dict(
     {

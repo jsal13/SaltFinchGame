@@ -42,19 +42,3 @@ def return_map_str(map_grid: list[list[str]]) -> HTML:
 def print_map_as_formatted_str(html_map_str: str) -> None:
     """Print a formatted map using the `print_formatted_text` function."""
     print_formatted_text(html_map_str, style=ASCII_STYLES)
-
-
-if __name__ == "__main__":
-    from saltfinchgame.data.countries import COUNTRIES
-    from saltfinchgame.data_structures.ascii_map import MapASCII
-
-    towns_in_falias = COUNTRIES.get_by_name("FALIAS").towns
-    countries = COUNTRIES
-
-    ma = MapASCII()
-    ma._generate_map_grid_base_layer()
-    ma._generate_area_locations(areas=towns_in_falias)
-    # ma._generate_area_locations(areas=COUNTRIES)
-    _map = return_map_str(ma.map_grid)
-
-    print_map_as_formatted_str(_map)

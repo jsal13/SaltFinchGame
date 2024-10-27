@@ -28,9 +28,10 @@ class Area:
 class Town(Area):
     """Represents a Town/City."""
 
+    country: "CountryName"
     goods_selling: str
     goods_buying: str
-    country: "Country"
+    inn_cost: int
 
 
 @define()
