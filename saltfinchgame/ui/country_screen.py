@@ -1,7 +1,7 @@
 from prompt_toolkit import HTML, print_formatted_text, prompt
 
 from saltfinchgame.constants import ASCII_STYLES
-from saltfinchgame.data.locations import TOWNS
+from saltfinchgame.data.locations import COUNTRIES, TOWNS, TownList
 from saltfinchgame.data_structures.locations import Town
 from saltfinchgame.ui.clear_terminal import clear_terminal
 from saltfinchgame.ui.input_validator import numeric_validator
@@ -15,21 +15,24 @@ def print_main_country_screen(town: Town) -> None:
     Note: We use `town` here because the Player will always
     be at a town, and that town will always be in a country.
     """
+    country_name: str = town.country
+    townlist_for_country: TownList = COUNTRIES.get_by_name(name=country_name).towns
+
     title_01: HTML = HTML(
-        f"{'=' * len(town.country.name)}\n"
-        f"<town>{town.country.name}</town>"
-        f"\n{'=' * len(town.country.name)}\n"
+        f"{'=' * len(country_name)}\n"
+        f"<town>{country_name}</town>"
+        f"\n{'=' * len(country_name)}\n"
     )
     dialogue_01: HTML = HTML(
-        f"You're at the enterance of <town>{town.name.name}</town> "
-        f"in the country of <country>{town.country.name}</country>, "
+        f"You're at the enterance of <town>{town.name}</town> "
+        f"in the country of <country>{country_name}</country>, "
         "getting ready to leave.\n"
     )
     dialogue_02: HTML = HTML("What would you like to do?")
 
     print_formatted_text(title_01, style=ASCII_STYLES)
     print_formatted_text(dialogue_01, style=ASCII_STYLES)
-    print_map_of_country(country_name=town.country)
+    print_map_of_country(townlist_for_country=townlist_for_country)
     print()
     print_formatted_text(dialogue_02, style=ASCII_STYLES)
 
@@ -38,7 +41,7 @@ def print_country_options(town: Town) -> None:
     """Print options related to the country."""
     options: str = (
         f"""
-    [1] Go back into {town.name.name}.
+    [1] Go back into {town.name}.
     [2] Set out for another town.
     [3] Set out for another country.
     """

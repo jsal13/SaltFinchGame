@@ -1,8 +1,8 @@
+from saltfinchgame.data_structures.ascii_map import MapLocation
 from saltfinchgame.data_structures.locations import (
     Country,
     CountryList,
     Description,
-    MapLocation,
     Town,
     TownList,
 )
@@ -200,11 +200,13 @@ TOWNS: TownList = TownList(towns=list_of_towns)
 list_of_countries: list[Country] = [
     Country(
         name="FALIAS",
-        towns=[
-            TOWNS.get_by_name("AETHERBURG"),
-            TOWNS.get_by_name("BOREALIS"),
-            TOWNS.get_by_name("CAERWYN"),
-        ],
+        towns=TownList(
+            towns=[
+                TOWNS.get_by_name("AETHERBURG"),
+                TOWNS.get_by_name("BOREALIS"),
+                TOWNS.get_by_name("CAERWYN"),
+            ]
+        ),
         map_location=MapLocation(x=3, y=1),
         description=Description(
             weather="Temperate weather, neither too hot nor too cold.",
@@ -220,13 +222,15 @@ list_of_countries: list[Country] = [
     ),
     Country(
         name="SCHOLOMANCE",
-        towns=[
-            TOWNS.get_by_name("CALIDUS"),
-            TOWNS.get_by_name("DUNARD"),
-            TOWNS.get_by_name("DURUM"),
-            TOWNS.get_by_name("ELLAN"),
-            TOWNS.get_by_name("EOS"),
-        ],
+        towns=TownList(
+            towns=[
+                TOWNS.get_by_name("CALIDUS"),
+                TOWNS.get_by_name("DUNARD"),
+                TOWNS.get_by_name("DURUM"),
+                TOWNS.get_by_name("ELLAN"),
+                TOWNS.get_by_name("EOS"),
+            ]
+        ),
         map_location=MapLocation(x=5, y=7),
         description=Description(
             weather="Continental climate: hot, dry summers and cold, snowy winters.",
@@ -240,11 +244,13 @@ list_of_countries: list[Country] = [
     ),
     Country(
         name="ZERZURA",
-        towns=[
-            TOWNS.get_by_name("FRIGIDUM"),
-            TOWNS.get_by_name("GAELIC"),
-            TOWNS.get_by_name("GLACIALIS"),
-        ],
+        towns=TownList(
+            towns=[
+                TOWNS.get_by_name("FRIGIDUM"),
+                TOWNS.get_by_name("GAELIC"),
+                TOWNS.get_by_name("GLACIALIS"),
+            ]
+        ),
         map_location=MapLocation(x=22, y=12),
         description=Description(
             weather=(
@@ -261,10 +267,10 @@ list_of_countries: list[Country] = [
     ),
     # Country(
     #     name="AKHET",
-    #     towns=[
+    #     towns=TownList(towns=[
     #         TOWNS.get_by_name("GOROD"),
     #         TOWNS.get_by_name("IGNIS"),
-    #     ],
+    #     ]),
     #     description=Description(
     #         weather="Warm winters with humid, hot summers.",
     #         resources=(
@@ -276,9 +282,11 @@ list_of_countries: list[Country] = [
     # ),
     Country(
         name="KARSHVAR",
-        towns=[
-            TOWNS.get_by_name("LUNA"),
-        ],
+        towns=TownList(
+            towns=[
+                TOWNS.get_by_name("LUNA"),
+            ]
+        ),
         map_location=MapLocation(x=37, y=3),
         description=Description(
             weather="Warm winters with humid, hot summers.",
