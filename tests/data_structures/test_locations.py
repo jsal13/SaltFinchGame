@@ -1,11 +1,7 @@
 from saltfinchgame.data_structures.ascii_map import MapLocation
 from saltfinchgame.data_structures.locations import (
     Area,
-    Country,
-    CountryList,
     Description,
-    Town,
-    TownList,
 )
 
 
