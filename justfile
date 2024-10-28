@@ -15,4 +15,4 @@ ds:
     && uv pip install -r requirements-ds.txt
 
 test:
-  python -m pytest --doctest-modules ./tests
+  python -m pytest --cov=saltfinchgame --doctest-modules ./tests && coverage html

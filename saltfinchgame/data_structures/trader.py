@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from attrs import define, field
+from attrs import define
 
 if TYPE_CHECKING:
     from saltfinchgame.data_structures.items import ItemsList
@@ -10,5 +10,5 @@ if TYPE_CHECKING:
 class Trader:
     """Parent class for traders."""
 
-    name: str = field(default="Trade Armin")
-    items: ItemsList
+    name: str
+    items: "ItemsList"

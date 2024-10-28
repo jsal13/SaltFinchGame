@@ -1,5 +1,6 @@
 coverage
 mypy
+pytest-cov
 pytest-mock
 pytest
 ruff

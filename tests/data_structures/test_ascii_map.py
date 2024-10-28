@@ -35,6 +35,50 @@ def test_map_location_initializes(ascii_map_values_fixture: dict[Any, Any]):
     assert map_ascii.map_grid is not None
 
 
+def test_map_location__generate_area_locations_runs_with_towns(
+    ascii_map_values_fixture, townlist_fixture
+):
+    map_ascii: MapASCII = MapASCII(
+        width=ascii_map_values_fixture["Width"],
+        height=ascii_map_values_fixture["Height"],
+        symbols=ascii_map_values_fixture["Symbols"],
+    )
+    map_ascii._generate_map_grid_base_layer()
+    map_ascii._generate_area_locations(areas=townlist_fixture)
+
+    assert map_ascii.map_grid is not None
+
+
+def test_map_location__generate_area_locations_runs_with_countries(
+    ascii_map_values_fixture, countrylist_fixture
+):
+    map_ascii: MapASCII = MapASCII(
+        width=ascii_map_values_fixture["Width"],
+        height=ascii_map_values_fixture["Height"],
+        symbols=ascii_map_values_fixture["Symbols"],
+    )
+    map_ascii._generate_map_grid_base_layer()
+    map_ascii._generate_area_locations(areas=countrylist_fixture)
+
+    assert map_ascii.map_grid is not None
+
+
+def test_map_location__generate_area_locations_runs_with_nonarea(
+    ascii_map_values_fixture, countrylist_fixture
+):
+    map_ascii: MapASCII = MapASCII(
+        width=ascii_map_values_fixture["Width"],
+        height=ascii_map_values_fixture["Height"],
+        symbols=ascii_map_values_fixture["Symbols"],
+    )
+    map_ascii._generate_map_grid_base_layer()
+
+    with pytest.raises(
+        Exception, match=r"`areas` is not a `TownList` or `CountryList`."
+    ):
+        map_ascii._generate_area_locations(areas="")
+
+
 # def _generate_area_locations(self, areas: CountryList | TownList) -> None:
 #     """Generate town or country locations on the map."""
 #     if self.map_grid is None:

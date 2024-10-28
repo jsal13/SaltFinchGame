@@ -39,16 +39,18 @@ class MapASCII:
             msg: str = "`map_grid` has not been initialized."
             raise Exception(msg)
 
+        area_symbol: str
+        if isinstance(areas, TownList):
+            area_symbol = self.symbols["Town"]
+        elif isinstance(areas, CountryList):
+            area_symbol = self.symbols["Country"]
+        else:
+            msg: str = "`areas` is not a `TownList` or `CountryList`."
+            raise Exception(msg)
+
         for area in areas:
             x, y = area.map_location
+            self.map_grid[y][x] = area_symbol
 
-            if isinstance(area, Town):
-                self.map_grid[y][x] = self.symbols["Town"]
-            elif isinstance(area, Country):
-                self.map_grid[y][x] = self.symbols["Country"]
-            else:
-                msg: str = "`area` is not a `Town` or `Country`."
-                raise Exception(msg)
-
-            for n, letter in enumerate(area.name.name):
+            for n, letter in enumerate(area.name):
                 self.map_grid[y + 1][x + n - 2] = letter
