@@ -1,15 +1,15 @@
+from typing import TYPE_CHECKING
+
 from attrs import define
 
-from saltfinchgame.data.location_attributes import Biome, MapLocation, Size
-from saltfinchgame.data.location_names import CountryName, TownName
+if TYPE_CHECKING:
+    from saltfinchgame.data_structures.ascii_map import MapLocation
 
 
 @define()
 class Description:
     """Description of an Area."""
 
-    size: Size
-    biomes: list[Biome] | None
     weather: str | None
     resources: str | None
     misc_facts: str | None
@@ -19,18 +19,18 @@ class Description:
 class Area:
     """Parent class for cities, towns, countries, etc."""
 
-    name: TownName | CountryName
+    name: str
     description: Description | str
-    map_location: MapLocation
+    map_location: "MapLocation"
 
 
 @define()
 class Town(Area):
     """Represents a Town/City."""
 
-    country: "CountryName"
-    goods_selling: str
-    goods_buying: str
+    country: str
+    items_selling: str
+    items_buying: str
     inn_cost: int
 
 
@@ -43,13 +43,10 @@ class TownList:
     def __iter__(self):
         yield from self.towns
 
-    def get_by_name(self, name: str | TownName) -> Town:
+    def get_by_name(self, name: str) -> Town:
         """Get town by name."""
-        if isinstance(name, TownName):
-            name: str = name.name
-
         # There should only be one element here.
-        return next(town for town in self.towns if town.name.name == name)
+        return next(town for town in self.towns if town.name == name)
 
 
 @define()
@@ -68,9 +65,7 @@ class CountryList:
     def __iter__(self):
         yield from self.countries
 
-    def get_by_name(self, name: str | CountryName) -> Country:
+    def get_by_name(self, name: str) -> Country:
         """Get town by name."""
-        if isinstance(name, CountryName):
-            name: str = name.name
         # There should only be one element here.
-        return next(country for country in self.countries if country.name.name == name)
+        return next(country for country in self.countries if country.name == name)

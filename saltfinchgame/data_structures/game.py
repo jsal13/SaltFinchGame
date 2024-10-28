@@ -1,11 +1,6 @@
-from attrs import define, field
+from attrs import define
 
-from saltfinchgame.constants import STARTING_VALUES
-
-# from saltfinchgame.data_structures.locations import Country, Town
-from saltfinchgame.data.countries import COUNTRIES
-from saltfinchgame.data.towns import TOWNS
-from saltfinchgame.data_structures.locations import CountryList, TownList, TownName
+from saltfinchgame.data_structures.locations import CountryList, TownList
 from saltfinchgame.data_structures.player import Player
 
 
@@ -13,14 +8,6 @@ from saltfinchgame.data_structures.player import Player
 class Game:
     """Game object."""
 
-    is_alive: bool = field(default=True)
-
-    player: Player = field(default=Player(goods=""))
-    countries: CountryList = field(default=COUNTRIES)
-    towns: TownList = field(default=TOWNS)
-
-    # Maybe the player has this.
-    current_town: TownName = field(default=TOWNS.get_by_name(STARTING_VALUES["Town"]))
-
-
-g = Game()
+    player: Player
+    countries: CountryList
+    towns: TownList

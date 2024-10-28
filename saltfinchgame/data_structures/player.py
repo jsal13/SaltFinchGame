@@ -1,14 +1,16 @@
-from attrs import define, field
+from typing import TYPE_CHECKING
 
-from saltfinchgame.constants import STARTING_VALUES
-from saltfinchgame.data_structures.goods import Goods
+from attrs import define
+
+if TYPE_CHECKING:
+    from saltfinchgame.data_structures.items import Items
 
 
 @define()
 class Player:
     """Player object."""
 
-    name: str = field(default=STARTING_VALUES["Name"])
-    health: int = field(default=STARTING_VALUES["Health"])
-    silver: int = field(default=STARTING_VALUES["Silver"])
-    goods: list["Goods"]
+    name: str
+    health: int
+    silver: int
+    items: list["Items"]

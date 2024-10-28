@@ -1,8 +1,8 @@
 from prompt_toolkit import HTML, print_formatted_text, prompt
 
 from saltfinchgame.constants import ASCII_STYLES
-from saltfinchgame.data.towns import TOWNS
-from saltfinchgame.data_structures.locations import Town, TownName
+from saltfinchgame.data.locations import TOWNS
+from saltfinchgame.data_structures.locations import Town
 from saltfinchgame.ui.clear_terminal import clear_terminal
 from saltfinchgame.ui.input_validator import numeric_validator
 
@@ -10,12 +10,12 @@ from saltfinchgame.ui.input_validator import numeric_validator
 def print_main_town_screen(town: Town) -> None:
     """Display the main town screen."""
     title_01: HTML = HTML(
-        f"{'=' * len(town.name.name)}\n"
-        f"<town>{town.name.name}</town>"
-        f"\n{'=' * len(town.name.name)}\n"
+        f"{'=' * len(town.name)}\n"
+        f"<town>{town.name}</town>"
+        f"\n{'=' * len(town.name)}\n"
     )
     dialogue_01: HTML = HTML(
-        f"You're standing in the <town>{town.name.name}</town> town square.\n"
+        f"You're standing in the <town>{town.name}</town> town square.\n"
     )
     dialogue_02: HTML = HTML("What would you like to do?")
 
@@ -30,7 +30,7 @@ def print_town_options(town: Town) -> None:
         f"""
     [1] Go to the inn and rest ({town.inn_cost} silver).
     [2] Trade in the marketplace.
-    [3] Leave <town>{town.name.name}</town>.
+    [3] Leave <town>{town.name}</town>.
     """
     )
     options_html: HTML = HTML(options)
@@ -52,7 +52,7 @@ def prompt_user_for_town_option_input() -> int:
 
 
 if __name__ == "__main__":
-    aetherburg: Town = TOWNS.get_by_name(TownName.AETHERBURG)
+    aetherburg: Town = TOWNS.get_by_name("AETHERBURG")
     clear_terminal()
     print_main_town_screen(town=aetherburg)
     print()

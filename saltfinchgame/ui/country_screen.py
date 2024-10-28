@@ -1,8 +1,8 @@
 from prompt_toolkit import HTML, print_formatted_text, prompt
 
 from saltfinchgame.constants import ASCII_STYLES
-from saltfinchgame.data.towns import TOWNS
-from saltfinchgame.data_structures.locations import Town, TownName
+from saltfinchgame.data.locations import TOWNS
+from saltfinchgame.data_structures.locations import Town
 from saltfinchgame.ui.clear_terminal import clear_terminal
 from saltfinchgame.ui.input_validator import numeric_validator
 from saltfinchgame.ui.print_maps import print_map_of_country
@@ -62,7 +62,7 @@ def prompt_user_for_country_option_input() -> int:
 
 
 if __name__ == "__main__":
-    aetherburg: Town = TOWNS.get_by_name(TownName.AETHERBURG)
+    aetherburg: Town = TOWNS.get_by_name("AETHERBURG")
     clear_terminal()
     print_main_country_screen(town=aetherburg)
     print()

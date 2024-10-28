@@ -1,6 +1,5 @@
-from attrs import define, field
+from attrs import define, field, validators
 
-from saltfinchgame.constants import ASCII_MAP_VALUES
 from saltfinchgame.data_structures.locations import (
     Country,
     CountryList,
@@ -10,15 +9,23 @@ from saltfinchgame.data_structures.locations import (
 
 
 @define()
+class MapLocation:
+    """Location on the ASCII Map."""
+
+    x: int = field(default=0, validator=validators.ge(0))
+    y: int = field(default=0, validator=validators.ge(0))
+
+    def __iter__(self):
+        return iter((self.x, self.y))
+
+
+@define()
 class MapASCII:
     """ASCII Map object."""
 
-    width: int = field(default=ASCII_MAP_VALUES["Width"])
-    height: int = field(default=ASCII_MAP_VALUES["Height"])
-
-    # Available Symbols:
-    # 'Town', 'Player', 'Background', 'Country'
-    symbols: dict[str, str] = field(default=ASCII_MAP_VALUES["Symbols"])
+    width: int
+    height: int
+    symbols: dict[str, str]
     map_grid: list[list[str]] = field(init=False)
 
     def _generate_map_grid_base_layer(self) -> None:
