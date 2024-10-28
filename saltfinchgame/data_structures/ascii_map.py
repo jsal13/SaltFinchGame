@@ -1,9 +1,7 @@
 from attrs import define, field, validators
 
 from saltfinchgame.data_structures.locations import (
-    Country,
     CountryList,
-    Town,
     TownList,
 )
 
