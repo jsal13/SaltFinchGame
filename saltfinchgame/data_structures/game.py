@@ -11,3 +11,4 @@ class Game:
     player: Player
     countries: CountryList
     towns: TownList
+    current_day: int

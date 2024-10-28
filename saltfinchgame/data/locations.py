@@ -1,3 +1,8 @@
+from saltfinchgame.data.items import (
+    TOWN_AETHERBURG_ITEM_POOL,
+    TOWN_BOREALIS_ITEM_POOL,
+    TOWN_CAERWYN_ITEM_POOL,
+)
 from saltfinchgame.data_structures.ascii_map import MapLocation
 from saltfinchgame.data_structures.locations import (
     Country,
@@ -14,8 +19,7 @@ list_of_towns: list[Town] = [
         description="",
         country="FALIAS",
         map_location=MapLocation(3, 5),
-        items_selling="",
-        items_buying="",
+        item_list=TOWN_CAERWYN_ITEM_POOL,
         inn_cost=1,
     ),
     Town(
@@ -23,8 +27,7 @@ list_of_towns: list[Town] = [
         description="",
         country="FALIAS",
         map_location=MapLocation(40, 3),
-        items_selling="",
-        items_buying="",
+        item_list=TOWN_AETHERBURG_ITEM_POOL,
         inn_cost=1,
     ),
     Town(
@@ -32,8 +35,7 @@ list_of_towns: list[Town] = [
         description="",
         country="FALIAS",
         map_location=MapLocation(8, 9),
-        items_selling="",
-        items_buying="",
+        item_list=TOWN_BOREALIS_ITEM_POOL,
         inn_cost=1,
     ),
     # SCHOLOMANCE
@@ -42,8 +44,7 @@ list_of_towns: list[Town] = [
         description="",
         country="SCHOLOMANCE",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     Town(
@@ -51,8 +52,7 @@ list_of_towns: list[Town] = [
         description="",
         country="SCHOLOMANCE",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     Town(
@@ -60,8 +60,7 @@ list_of_towns: list[Town] = [
         description="",
         country="SCHOLOMANCE",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     Town(
@@ -69,8 +68,7 @@ list_of_towns: list[Town] = [
         description="",
         country="SCHOLOMANCE",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     Town(
@@ -78,8 +76,7 @@ list_of_towns: list[Town] = [
         description="",
         country="SCHOLOMANCE",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     # ZERZURA
@@ -88,8 +85,7 @@ list_of_towns: list[Town] = [
         description="",
         country="ZERZURA",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     Town(
@@ -97,8 +93,7 @@ list_of_towns: list[Town] = [
         description="",
         country="ZERZURA",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     Town(
@@ -106,8 +101,7 @@ list_of_towns: list[Town] = [
         description="",
         country="ZERZURA",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     # KARSHVAR
@@ -116,8 +110,7 @@ list_of_towns: list[Town] = [
         description="",
         country="KARSHVAR",
         map_location=MapLocation(),
-        items_selling="",
-        items_buying="",
+        item_list=None,
         inn_cost=1,
     ),
     # Town(

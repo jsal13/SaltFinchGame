@@ -44,5 +44,7 @@ ASCII_STYLES: Style = Style.from_dict(
         "player": COLORS["Blue"],
         "background": COLORS["Light Green"],
         "area-name": COLORS["White"],
+        "buy": COLORS["White"],
+        "sell": COLORS["White"],
     }
 )

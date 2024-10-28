@@ -51,6 +51,11 @@ def prompt_user_for_town_option_input() -> int:
     return int(user_input)
 
 
+def handle_trade_in_marketplace(town: Town) -> None:
+    """Handle player choosing to trade in marketplace."""
+    pass
+
+
 if __name__ == "__main__":
     aetherburg: Town = TOWNS.get_by_name("AETHERBURG")
     clear_terminal()

@@ -1,9 +1,10 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 from attrs import define
 
 if TYPE_CHECKING:
     from saltfinchgame.data_structures.ascii_map import MapLocation
+    from saltfinchgame.data_structures.items import ItemList
 
 
 @define()
@@ -29,8 +30,7 @@ class Town(Area):
     """Represents a Town/City."""
 
     country: str
-    items_selling: str
-    items_buying: str
+    item_list: Optional["ItemList"]
     inn_cost: int
 
 

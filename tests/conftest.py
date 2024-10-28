@@ -109,9 +109,8 @@ def countrylist_fixture(townlist_fixture) -> CountryList:
 def item_fixture() -> Item:
     return Item(
         name="Test Item",
-        description="It's a test item!",
-        default_buy_price=10,
-        default_sell_price=20,
+        buy_price=10,
+        sell_price=20,
     )
 
 
@@ -119,14 +118,12 @@ def item_fixture() -> Item:
 def itemlist_fixture() -> Item:
     item_0 = Item(
         name="Test Item",
-        description="It's a test item!",
-        default_buy_price=10,
-        default_sell_price=20,
+        buy_price=10,
+        sell_price=20,
     )
     item_1 = Item(
         name="Test Item 2",
-        description="It's a test item, too!",
-        default_buy_price=20,
-        default_sell_price=50,
+        buy_price=20,
+        sell_price=50,
     )
     return ItemList(items=[item_0, item_1])
