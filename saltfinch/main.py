@@ -3,7 +3,7 @@ import os
 from attrs import define
 
 from saltfinch.game.game import Game
-from saltfinch.economy.events import EventType
+from saltfinch.economy.events import EconomicEventType
 
 
 @define
@@ -13,12 +13,14 @@ class GameLoop:
     def clear_screen(self):
         os.system("cls" if os.name == "nt" else "clear")
 
-    def print_divider(self, character: str="=", space_before: bool=False, space_after: bool=True):
+    def print_divider(
+        self, character: str = "=", space_before: bool = False, space_after: bool = True
+    ):
         if space_before:
             print()
-        
+
         print(character * 60)
-        
+
         if space_after:
             print()
 
@@ -29,14 +31,13 @@ class GameLoop:
         self.print_divider()
 
     def display_events(self):
-        print(self.game.current_town_economy.daily_events)
-        if self.game.current_town_economy.daily_events:
+        if self.game.current_town_economy.daily_economic_events:
             print("Today's Events:")
-            for event in self.game.current_town_economy.daily_events:
+            for event in self.game.current_town_economy.daily_economic_events:
                 event_type_symbol = (
                     "✓"
-                    if event.event_type == EventType.POSITIVE
-                    else "✗" if event.event_type == EventType.NEGATIVE else "○"
+                    if event.event_type == EconomicEventType.POSITIVE
+                    else "✗" if event.event_type == EconomicEventType.NEGATIVE else "○"
                 )
                 print(f"{event_type_symbol} {event.name}: {event.description}")
                 print(f"Affected goods: {', '.join(event.affected_goods)}")

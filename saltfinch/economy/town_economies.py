@@ -1,23 +1,23 @@
 import random
 from attrs import define, field
 
-from saltfinch.economy.events import Event
+from saltfinch.economy.events import EconomicEvent
 from saltfinch.economy.goods import Good
 
 
 @define
 class TownEconomy:
-    goods: dict[str, Good]
-    events: list[Event] = field(factory=list)
-    daily_events: list[Event] = field(init=False)
+    goods: dict[str, "Good"]
+    economic_events: list["EconomicEvent"] = field(factory=list)
+    daily_economic_events: list["EconomicEvent"] = field(init=False)
 
     def update_prices(self) -> None:
         # Clear previous day's events
-        self.daily_events = []
+        self.daily_economic_events = []
 
         # 30% chance of a random event occurring
         if random.random() < 0.3:
-            event = random.choice(self.events)
+            event = random.choice(self.economic_events)
             affected_goods_in_common_with_goods: set[str] = set(
                 event.affected_goods.keys()
             ).intersection(set(self.goods.keys()))
@@ -30,7 +30,7 @@ class TownEconomy:
 
             if affected_goods_in_common_with_goods:
                 # If some goods are affected, apply the event.
-                self.daily_events.append(event)
+                self.daily_economic_events.append(event)
 
                 # Apply event effects to goods prices
                 for good_name, multiplier in event.affected_goods.items():
