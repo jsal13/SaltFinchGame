@@ -1,0 +1,6 @@
+[project]
+name = "SaltFinch"
+version = "0.1.0"
+description = "Salt Finch is a trading game."
+readme = "README.md"
+requires-python = ">=3.13"
