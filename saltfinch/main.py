@@ -1,17 +1,14 @@
 import time
-import os
 from attrs import define
 
 from saltfinch.game.game import Game
-from saltfinch.economy.events import EconomicEventType
-
+from saltfinch.economy.economic_events import EconomicEventType
+from saltfinch.common.terminal import clear_screen
+from saltfinch._data.game.game import start_script
 
 @define
 class GameLoop:
     game: Game = Game()
-
-    def clear_screen(self):
-        os.system("cls" if os.name == "nt" else "clear")
 
     def print_divider(
         self, character: str = "=", space_before: bool = False, space_after: bool = True
@@ -25,7 +22,7 @@ class GameLoop:
             print()
 
     def print_header(self):
-        self.clear_screen()
+        clear_screen()
         print(f"=== SALTFINCH - Day {self.game.day} ===")
         print(f"Money: ${self.game.player.money:.2f}")
         self.print_divider()
@@ -86,6 +83,9 @@ class GameLoop:
         return input("What would you like to do? ").strip().lower()
 
     def run(self):
+        start_script()
+        input("Press Enter to start the game...")
+        
         self.print_header()
         self.display_goods()
 

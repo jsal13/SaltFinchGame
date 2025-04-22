@@ -1,6 +1,6 @@
 import random
 
-from saltfinch.economy.events import EconomicEvent, EconomicEventType
+from saltfinch.economy.economic_events import EconomicEvent, EconomicEventType
 
 
 """

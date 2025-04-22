@@ -2,7 +2,7 @@ from attrs import define, field
 
 from saltfinch.economy.town_economies import TownEconomy
 from saltfinch.game.player import Player
-from saltfinch.data.economy.town_economies import TOWN_ECONOMIES
+from saltfinch._data.economy.town_economies import TOWN_ECONOMIES
 
 @define
 class Game:

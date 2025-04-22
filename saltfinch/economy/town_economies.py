@@ -1,7 +1,7 @@
 import random
 from attrs import define, field
 
-from saltfinch.economy.events import EconomicEvent
+from saltfinch.economy.economic_events import EconomicEvent
 from saltfinch.economy.goods import Good
 
 
