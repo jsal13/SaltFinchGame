@@ -1,3 +1,7 @@
+"""
+Creates travel events that can occur during the journey.
+"""
+
 from saltfinch.travel.travel_events import TravelEvent
 
 TRAVEL_EVENTS: list["TravelEvent"] = [
@@ -9,19 +13,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": -20,
                 "water": -10,
-                "money": 0,
                 "msg": "You ford the river but your wagon gets damaged and you lose supplies.",
             },
             {
                 "health": -5,
                 "water": -5,
-                "money": 0,
                 "msg": "You find a safer crossing but it takes extra time.",
             },
             {
                 "health": -10,
                 "water": -15,
-                "money": -30,
                 "msg": "You build a raft which helps, but it's costly and time-consuming.",
             },
         ],
@@ -34,19 +35,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": -10,
                 "water": +50,
-                "money": 0,
                 "msg": "You hunt successfully but get injured in the process.",
             },
             {
                 "health": 0,
                 "water": -5,
-                "money": 0,
                 "msg": "You avoid the buffalo and continue safely, consuming a bit of food.",
             },
             {
                 "health": -15,
                 "water": -10,
-                "money": 0,
                 "msg": "The buffalo charge! You escape but sustain injuries and lose supplies.",
             },
         ],
@@ -59,19 +57,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": -25,
                 "water": -15,
-                "money": 0,
                 "msg": "The storm hits hard. You're soaked and many supplies are ruined.",
             },
             {
                 "health": -5,
                 "water": -20,
-                "money": 0,
                 "msg": "You wait out the storm, staying relatively dry but using extra food.",
             },
             {
                 "health": -10,
                 "water": -10,
-                "money": 0,
                 "msg": "You find a small cave for shelter but some supplies get wet anyway.",
             },
         ],
@@ -84,19 +79,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": -30,
                 "water": -10,
-                "money": -20,
                 "msg": "You fend them off but get wounded in the fight and lose some valuables.",
             },
             {
                 "health": -5,
                 "water": -5,
-                "money": -50,
                 "msg": "You negotiate and give them some money to leave you alone.",
             },
             {
                 "health": -15,
                 "water": -25,
-                "money": 0,
                 "msg": "You escape but lose some supplies in your haste.",
             },
         ],
@@ -113,19 +105,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": -5,
                 "water": -10,
-                "money": 0,
                 "msg": "The medicine helps and they recover quickly.",
             },
             {
                 "health": -10,
                 "water": -30,
-                "money": 0,
                 "msg": "Extended rest helps them recover but consumes extra food.",
             },
             {
                 "health": -25,
                 "water": -15,
-                "money": 0,
                 "msg": "Their condition worsens, affecting the whole party's morale and health.",
             },
         ],
@@ -142,19 +131,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": 0,
                 "water": -5,
-                "money": 0,
                 "msg": "You quickly fix the wheel with your spare parts.",
             },
             {
                 "health": -5,
                 "water": -15,
-                "money": 0,
                 "msg": "Your makeshift repair works but takes time and energy.",
             },
             {
                 "health": -20,
                 "water": -25,
-                "money": 0,
                 "msg": "The damaged wheel makes travel difficult and dangerous.",
             },
         ],
@@ -171,19 +157,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": 10,
                 "water": -5,
-                "money": 0,
                 "msg": "The company boosts morale but means more mouths to feed.",
             },
             {
                 "health": 0,
                 "water": 10,
-                "money": -10,
                 "msg": "You trade some money for additional food.",
             },
             {
                 "health": 5,
                 "water": -5,
-                "money": 0,
                 "msg": "You learn about the trail ahead, which helps your journey.",
             },
         ],
@@ -200,19 +183,16 @@ TRAVEL_EVENTS: list["TravelEvent"] = [
             {
                 "health": -5,
                 "water": -20,
-                "money": 0,
                 "msg": "You safely return to the trail but lose time and consume extra food.",
             },
             {
                 "health": -15,
                 "water": -15,
-                "money": 0,
                 "msg": "Scouting is tiring but you find your way back.",
             },
             {
                 "health": -25,
                 "water": -30,
-                "money": 0,
                 "msg": "Your shortcut turns dangerous, causing injuries and consuming supplies.",
             },
         ],

@@ -9,62 +9,87 @@ The `ALL_GOODS` dictionary contains all available goods, each represented by a
 available in, such as forest, mountain, desert, and city.
 """
 
+from enum import Enum
+
 from saltfinch.economy.goods import Good  # type: ignore[import]
 
-ALL_GOODS: dict[str, "Good"] = {
-    "wheat": Good.create("Wheat", 10.0, 0.15),
-    "apples": Good.create("Apples", 12.0, 0.25),
-    "cheese": Good.create("Cheese", 15.0, 0.15),
-    "chicken": Good.create("Chicken", 20.0, 0.15),
-    "fish": Good.create("Fish", 20.0, 0.10),
-    "wool": Good.create("Wool", 25.0, 0.20),
-    "lumber": Good.create("Lumber", 35.0, 0.10),
-    "iron": Good.create("Iron", 45.0, 0.15),
-    "cloth": Good.create("Cloth", 18.0, 0.15),
-    "medicine": Good.create("Medicine", 50.0, 0.25),
-    "tools": Good.create("Tools", 40.0, 0.10),
-    "salt": Good.create("Salt", 30.0, 0.20),
-    "water": Good.create("Water", 4.0, 0.05),
+
+class GoodName(Enum):
+    """
+    Enum for the names of goods.
+
+    This is used to ensure that the names of goods are consistent throughout the codebase.
+    """
+
+    WATER = "water"
+    MEAT = "meat"
+    LUMBER = "lumber"
+    SALT = "salt"
+    AMBER = "amber"
+
+    def __iter__(self):
+        """
+        Iterate over the enum members.
+        """
+        return iter(self.__class__.__members__.values())
+
+
+# Goods that are for survival in additionl to being traded.
+GAMEPLAY_GOODS: dict[str, "Good"] = {
+    GoodName.WATER.value: Good.create("Water", 4, 0.05),
+    GoodName.MEAT.value: Good.create("Meat", 12, 0.25),
 }
 
+# Goods that are primarily used for trading.
+TRADE_GOODS: dict[str, "Good"] = {
+    GoodName.LUMBER.value: Good.create("Lumber", 35, 0.10),
+    GoodName.SALT.value: Good.create("Salt", 30, 0.20),
+    GoodName.AMBER.value: Good.create("Amber", 100, 0.30),
+}
+
+# All goods that are used for trading and survival.
+ALL_GOODS = {**GAMEPLAY_GOODS, **TRADE_GOODS}
+
 FOREST_TOWN_GOODS: list[str] = [
-    "apples",
-    "cheese",
-    "lumber",
+    GoodName.MEAT.value,
+    GoodName.LUMBER.value,
+    GoodName.WATER.value,
 ]
 
-MOUNTAIN_TOWN_GOODS: list[str] = [
-    "wheat",
-    "apples",
-    "cheese",
-    "chicken",
-    "fish",
-    "iron",
-    "tools",
-]
+# MOUNTAIN_TOWN_GOODS: list[str] = [
+#     "wheat",
+#     "apples",
+#     "cheese",
+#     "chicken",
+#     "fish",
+#     "iron",
+#     "tools",
+# ]
 
-DESERT_TOWN_GOODS: list[str] = [
-    "wheat",
-    "apples",
-    "cheese",
-    "chicken",
-    "fish",
-    "salt",
-    "water",
-]
+# DESERT_TOWN_GOODS: list[str] = [
+#     "wheat",
+#     "apples",
+#     "cheese",
+#     "chicken",
+#     "fish",
+#     "salt",
+#     "water",
+# ]
 
-CITY_TOWN_GOODS: list[str] = [
-    "wheat",
-    "apples",
-    "cheese",
-    "chicken",
-    "fish",
-    "cloth",
-    "medicine",
-]
+# CITY_TOWN_GOODS: list[str] = [
+#     "wheat",
+#     "apples",
+#     "cheese",
+#     "chicken",
+#     "fish",
+#     "cloth",
+#     "medicine",
+# ]
 
 
-def _generate_goods_dict(goods_list: list[str]) -> dict[str, "Good"]:
+def _generate_goods_dict_from_goods_list(
+    goods_list: list[str],
+) -> dict[str, "Good"]:
     """
     Generate a dictionary of goods based on the provided list of good names.
 
@@ -82,9 +107,9 @@ def _generate_goods_dict(goods_list: list[str]) -> dict[str, "Good"]:
 # The keys are the town types, and the values are dictionaries of goods.
 # where the keys are the good names and the values are the Good objects.
 TOWN_GOODS_MAPPING: dict[str, dict[str, "Good"]] = {
-    "forest": _generate_goods_dict(goods_list=FOREST_TOWN_GOODS),
-    "mountain": _generate_goods_dict(goods_list=MOUNTAIN_TOWN_GOODS),
-    "desert": _generate_goods_dict(goods_list=DESERT_TOWN_GOODS),
-    "city": _generate_goods_dict(goods_list=CITY_TOWN_GOODS),
-    "all": _generate_goods_dict(goods_list=list(ALL_GOODS.keys())),
+    "forest": _generate_goods_dict_from_goods_list(goods_list=FOREST_TOWN_GOODS),
+    # "mountain": _generate_goods_dict(goods_list=MOUNTAIN_TOWN_GOODS),
+    # "desert": _generate_goods_dict(goods_list=DESERT_TOWN_GOODS),
+    # "city": _generate_goods_dict(goods_list=CITY_TOWN_GOODS),
+    "all": _generate_goods_dict_from_goods_list(goods_list=list(ALL_GOODS.keys())),
 }

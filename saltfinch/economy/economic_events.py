@@ -1,18 +1,23 @@
+"""
+Creates EconomicEvent objects that represent events affecting the economy.
+These events can affect the prices of goods in a town.
+"""
+
+from typing import TYPE_CHECKING
 
 from attrs import define
-from enum import Enum
 
-class EconomicEventType(Enum):
-    POSITIVE = 1
-    NEGATIVE = 2
-    NEUTRAL = 3
+
+if TYPE_CHECKING:
+    from saltfinch._data.economy.goods import GoodName
+
 
 @define
 class EconomicEvent:
+    """
+    Represents an economic event that can affect the prices of goods in a town.
+    """
+
     name: str
     description: str
-    event_type: EconomicEventType
-     # goods and their multiplier (above 1 for price increase, below 1 for decrease)
-    affected_goods: dict[str, float] 
-
-
+    affected_goods: dict[str, float]

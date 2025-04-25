@@ -1,8 +1,12 @@
+from typing import TYPE_CHECKING
 from attrs import define, field
 
-from saltfinch.economy.town_economies import TownEconomy
 from saltfinch.game.player import Player
 from saltfinch._data.economy.town_economies import TOWN_ECONOMIES
+
+if TYPE_CHECKING:
+    from saltfinch.economy.town_economies import TownEconomy
+
 
 @define
 class Game:
@@ -31,7 +35,7 @@ class Game:
 
         return (
             True,
-            f"Bought {quantity} {self.current_town_economy.goods[good_name].name} for ${total_cost:.2f}.",
+            f"Bought {quantity} {self.current_town_economy.goods[good_name].name} for ${total_cost}.",
         )
 
     def sell(self, good_name: str, quantity: int) -> tuple[bool, str]:
@@ -55,5 +59,5 @@ class Game:
 
         return (
             True,
-            f"Sold {quantity} {self.current_town_economy.goods[good_name].name} for ${total_price:.2f}.",
+            f"Sold {quantity} {self.current_town_economy.goods[good_name].name} for ${total_price}.",
         )

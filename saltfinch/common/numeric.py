@@ -1,3 +1,7 @@
+"""
+Functions to cast values to numeric types.
+"""
+
 from typing import Any
 
 
